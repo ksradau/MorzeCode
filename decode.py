@@ -13,14 +13,12 @@ def decode_normal_morze(morse_code):
 
 
 def letters(morse_code):
-    line = list(morse_code)
     output = []
-    print(line)
     count = 0
-    for i in range(len(line)):
-        uni = ''.join(map(str, line[:count + 1]))
-        if uni in MORSE_CODE:
-            output.append(MORSE_CODE[uni])
+    for i in range(len(morse_code)):
+        symbols = morse_code[:count + 1]
+        if symbols in MORSE_CODE:
+            output.append(MORSE_CODE[symbols])
             count += 1
     return output
 
