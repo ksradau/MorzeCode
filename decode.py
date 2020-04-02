@@ -12,20 +12,19 @@ def decode_normal_morze(morse_code):
     return output_text
 
 
-def decode_line_morze(morse_code):
+def letters(morse_code):
     line = list(morse_code)
+    output = []
     print(line)
     count = 0
     for i in range(len(line)):
         uni = ''.join(map(str, line[:count + 1]))
         if uni in MORSE_CODE:
-            print(MORSE_CODE[uni], end=' ')
+            output.append(MORSE_CODE[uni])
             count += 1
-            decode_line_morze(morse_code[len(uni):])
-        else:
-            print('______uni_not_in_dict______')
+    return output
 
 
-print(decode_line_morze('.--...'))
+print(letters('.--...'))
 #print(decode_line_morze('--.--.--...-..---.-.'))
 #print(decode_normal_morze('.... . -.--   .--- ..- -.. .'))
